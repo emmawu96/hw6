@@ -1,0 +1,128 @@
+---
+title: "Homework 6 -- Bude Map"
+author: "Yue Wu"
+date: "3/23/2018"
+geometry: "left=3cm,right=3cm,top=2cm,bottom=2cm"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(ggmap)
+library(tidyverse)
+```
+
+## Road Map and Vacation Spots in Bude, UK
+```{r map1, message=FALSE, warning=FALSE,echo=FALSE}
+load("hw6data.RData")
+bude <- data.frame('lon'=-4.543678, 'lat'=50.82664)
+#map <- get_map("bude, england", zoom= 15)
+#beaches
+##Summerleaze Beach, Bude, UK
+sb <- data.frame('lon'=-4.551349,'lat'=50.83054)
+##Crooklets Beach, Bude, UK
+cb <- data.frame('lon'=-4.552731,'lat'=50.83626)
+
+#vacation spots
+##Bude and North Cornwall Golf Club, Bude, UK
+golf <- data.frame('lon'=-4.544649,'lat'=50.83256)
+##Adventure International, Bude, UK
+ai <- data.frame('lon'=-4.545798,'lat'=50.83035)
+##Bude North Cornwall Cricket Club, bude, uk
+cricket <- data.frame('lon'=-4.552814,'lat'=50.83347)
+#Bar 34, Bude, UK
+pub <- data.frame('lon'=-4.544088,'lat'=50.83016)
+
+#road map
+map <- get_map(bude+c(-0.005,0.005),zoom=15)    ##modify the map location to adjust the view
+
+ggmap(map) +
+  geom_point(
+    aes(x = lon, y = lat),
+    data = bude+c(-0.0005,0.0005), color = "brown", size = 3
+  ) +
+  geom_point(
+    aes(x = lon, y = lat),
+    data = sb, color = "blue", size = 3
+  ) +
+  geom_point(
+    aes(x = lon, y = lat),
+    data = cb, color = "blue", size = 3
+  ) +
+  geom_point(
+    aes(x = lon, y = lat),
+    data = golf, color = "coral", size = 3
+  ) +
+  geom_point(
+    aes(x = lon, y = lat),
+    data = ai, color = "coral", size = 3
+  ) +
+  geom_point(
+    aes(x = lon, y = lat),
+    data = cricket, color = "red", size = 3
+  ) +
+  geom_point(
+    aes(x = lon, y = lat),
+    data = pub, color = "red", size = 3
+  ) +  
+  geom_path(
+    aes(x = lon, y = lat), colour = "red", size = 1.5,
+    data = route_df, lineend = "round"
+  )
+
+#watercolor map
+# map1 <- get_map("bude,uk",zoom=14,maptype = "watercolor")
+```
+
+####Beaches:
+Marked with blue points (Summerleaze Beach and Crooklets Beach).  
+  
+![Summerleaze Beach](https://www.visitcornwall.com/sites/default/files/styles/product_image_breakpoints_theme_visitcornwall2_mobile_2x/public/product_image/beach%20hut%20bude.jpg?itok=00rYiPZO&timestamp=1342768426){ width=52%}
+![Crooklets Beach](https://www.cornwall-beaches.co.uk/public/photos/crooklets.jpg){width=60% }  
+**Summerleaze Beach (left) and Crooklets Beach (right) **  
+  
+####Vacation spots:
+Marked with coral points (Bude and North Cornwall Golf Club and Adventure International).  
+  
+![Bude and North Cornwall Golf Club](https://www.top100golfcourses.com/images/Bude-North-Cornwall-Golf-Al.jpg){width=60%}
+    ![Adventure International](http://guide1.cornishtraditionalcottages.co.uk/attractionimages/assets/6317/xlarge/Adventure.jpg){width=50%}  
+**Bude and North Cornwall Golf Club (left) and Adventure International (right)**  
+  
+  
+####Route 
+In the road map, the pub (Bar 35) and Bude North Cornwall Cricket Club are marked with red points. The red path shows the route between them.  
+  
+![Bar 35](https://media-cdn.tripadvisor.com/media/photo-o/0f/8f/9e/06/getlstd-property-photo.jpg){width=65%}
+    ![Cricket Club](http://s3.amazonaws.com/medias.photodeck.com/a064bcef-005a-4e7e-aa14-f060ec45ca0f/SAB6160_xlarge.jpg){width=120%}  
+**Bar35 (left) and North Corwall Cricket Club (right)**  
+  
+  
+## Watercolor Map
+  
+Here is the watercolor map with the same marked locations:  
+  
+
+```{r map2, message=FALSE, warning=FALSE,echo=FALSE}
+ggmap(map1) +
+  geom_point(
+    aes(x = lon, y = lat),
+    data = bude+c(-0.0005,0.0005), color = "brown", size = 3
+  ) +
+  geom_point(
+    aes(x = lon, y = lat),
+    data = sb, color = "blue", size = 3
+  ) +
+  geom_point(
+    aes(x = lon, y = lat),
+    data = cb, color = "blue", size = 3
+  ) +
+  geom_point(
+    aes(x = lon, y = lat),
+    data = golf, color = "coral1", size = 3
+  ) +
+  geom_point(
+    aes(x = lon, y = lat),
+    data = ai, color = "coral1", size = 3
+  )
+```
+
