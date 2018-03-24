@@ -13,6 +13,25 @@ cricket <- geocode("Bude North Cornwall Cricket Club, bude, uk")
 #pub
 pub <- geocode("Bar 35, Bude, UK")
 
+#SECOND PART OF THE ASSIGNMENT BY FRANCESCO IGNAZIO RE
+#ADDING HOTELS
+
+hotel1 <- geocode("Hartland Terrace, Bude EX23 8JY, UK")
+hotel2 <- geocode("15 Burn View, Bude EX23 8BZ, UK")
+hotel3 <- geocode("13 The Strand, Bude EX23 8QU, UK")
+hotel4 <- geocode("Vicarage Rd, Bude EX23 8SD, UK")
+
+hotels_a <- rbind(hotel1,hotel2,hotel3,hotel4)
+
+
+
+hotels <- c("An Mor", "Sea Jade Guest House", "The Global Hotel", "The Brendon Arms")
+
+datas <- cbind(hotels_a, names_h)
+
+
+
+
 #road map
 map <- get_map(bude+c(-0.005,0.005),zoom=15)    ##modify the map location to adjust the view
 
@@ -44,7 +63,16 @@ ggmap(map) +
   geom_point(
     aes(x = lon, y = lat),
     data = pub, color = "red", size = 3
-  )
+  ) +geom_point(
+    aes(x=lon,y=lat,color = hotels ), data = datas, size = 3)
+
+
+
+
+
+   
+
+
 
 
 #watercolor map
@@ -70,7 +98,10 @@ ggmap(map1) +
   geom_point(
     aes(x = lon, y = lat),
     data = ai, color = "coral1", size = 3
-  )
+  ) +
+  +geom_point(
+    aes(x=lon,y=lat,color = hotels ), data = datas, size = 3)
+
 
 
 #route on map
