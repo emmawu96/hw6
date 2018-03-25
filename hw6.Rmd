@@ -30,7 +30,7 @@ golf <- data.frame('lon'=-4.544649,'lat'=50.83256)
 ai <- data.frame('lon'=-4.545798,'lat'=50.83035)
 ##Bude North Cornwall Cricket Club, bude, uk
 cricket <- data.frame('lon'=-4.552814,'lat'=50.83347)
-#Bar 34, Bude, UK
+#Bar 35, Bude, UK
 pub <- data.frame('lon'=-4.544088,'lat'=50.83016)
 
 #road map
@@ -68,6 +68,30 @@ ggmap(map) +
   geom_path(
     aes(x = lon, y = lat), colour = "red", size = 1.5,
     data = route_df, lineend = "round"
+  ) +  
+  geom_text(
+    aes(x = lon, y = lat, label = "Summerleaze Beach"), size =2, 
+    data = sb, vjust = -0.8, hjust = 0.5
+  ) +
+  geom_text(
+    aes(x = lon, y = lat, label = "Crooklets Beach"), size =2, 
+    data = cb, vjust = -0.8, hjust = 0.5
+  ) +
+  geom_text(
+    aes(x = lon, y = lat, label = "Bude and North Cornwall Golf Club"), size =2, 
+    data = golf, vjust = -0.8, hjust = 0.5
+  ) +  
+  geom_text(
+    aes(x = lon, y = lat, label = "Adventure International"), size =2, 
+    data = ai, vjust = -1.0, hjust = 0.5
+  ) +
+  geom_text(
+    aes(x = lon, y = lat, label = "BAR35"), size =2, 
+    data = pub, vjust = -0.5, hjust = 0.5
+  ) +
+  geom_text(
+    aes(x = lon, y = lat, label = "Bude North Cornwall Cricket Club"), size =2, 
+    data = cricket, vjust = -0.8, hjust = 0.5
   )
 
 #watercolor map
@@ -123,6 +147,38 @@ ggmap(map1) +
   geom_point(
     aes(x = lon, y = lat),
     data = ai, color = "coral1", size = 3
+  ) + 
+  geom_point(
+    aes(x = lon, y = lat),
+    data = cricket, color = "red", size = 3
+  ) +
+  geom_point(
+    aes(x = lon, y = lat),
+    data = pub, color = "red", size = 3
+  ) +
+  geom_text(
+    aes(x = lon, y = lat, label = "Summerleaze Beach"), size =2, 
+    data = sb, vjust = -0.8, hjust = 0.5
+  ) +
+  geom_text(
+    aes(x = lon, y = lat, label = "Crooklets Beach"), size =2, 
+    data = cb, vjust = -0.8, hjust = 0.5
+  ) +
+  geom_text(
+    aes(x = lon, y = lat, label = "Bude and North Cornwall Golf Club"), size =2, 
+    data = golf, vjust = -0.8, hjust = 0.5
+  ) +  
+  geom_text(
+    aes(x = lon, y = lat, label = "Adventure International"), size =2, 
+    data = ai, vjust = -2.5, hjust = 0.5
+  ) +
+  geom_text(
+    aes(x = lon, y = lat, label = "BAR35"), size =2, 
+    data = pub, vjust = -0.8, hjust = 0.5
+  ) +
+  geom_text(
+    aes(x = lon, y = lat, label = "Bude North Cornwall Cricket Club"), size =2, 
+    data = cricket, vjust = -0.8, hjust = 0.5
   )
 ```
 
