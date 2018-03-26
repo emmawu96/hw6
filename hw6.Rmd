@@ -182,3 +182,12 @@ ggmap(map1) +
   )
 ```
 
+
+
+Eventually, here the maps updated from Francesco Ignazio Re as the second part of the assignment, showing a few hotels of the area along with their names.
+
+
+![Route Map](fig1.pdf){width=65%}
+
+
+![Watercolor Map](fig2.pdf){width=65%}
