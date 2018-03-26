@@ -25,9 +25,9 @@ hotels_a <- rbind(hotel1,hotel2,hotel3,hotel4)
 
 
 
-hotels <- c("An Mor", "Sea Jade Guest House", "The Global Hotel", "The Brendon Arms")
+hotels <- c("An Mor", "Sea Jade Guest House", "The Globe Hotel", "The Brendon Arms")
 
-datas <- cbind(hotels_a, names_h)
+datas <- cbind(hotels_a, hotels)
 
 
 
@@ -98,8 +98,7 @@ ggmap(map1) +
   geom_point(
     aes(x = lon, y = lat),
     data = ai, color = "coral1", size = 3
-  ) +
-  +geom_point(
+  )+geom_point(
     aes(x=lon,y=lat,color = hotels ), data = datas, size = 3)
 
 
